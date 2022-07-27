@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Item from "./Item.js";
+import ItemsList from "./ItemsList.js";
 
 export default function Shop() {
   const [items, setItems] = useState([]);
@@ -75,7 +75,7 @@ export default function Shop() {
 
       <div>{addText()}</div>
 
-      <ul className="ui-list">
+      {/* <ul className="ui-list">
         {items.map((item) => (
           <li className="ui-item-list" key={item.id}>
             <Item info={item} />
@@ -87,7 +87,9 @@ export default function Shop() {
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
+
+      <ItemsList items={items} onDeleteClick={handleDeleteClick}/>
     </>
   );
 }
