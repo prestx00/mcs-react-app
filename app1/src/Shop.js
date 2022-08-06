@@ -7,7 +7,8 @@ export default function Shop() {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const text = <p className="ui-title">Добавьте новый товар</p>;
-
+  const valid = !!name && !!desc;
+ 
   function handleSubmitForm(e) {
     e.preventDefault();
     setItems([...items, { id: items.length, name: name, desc: desc }]);
@@ -40,6 +41,7 @@ export default function Shop() {
       desc={desc}
       onHandleChangeName={handleChangeName} 
       onHandleChangeDesc={handleChangeDesc}
+      valid={valid}
       />
 
       <div>{addText()}</div>
