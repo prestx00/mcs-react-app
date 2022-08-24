@@ -29,11 +29,11 @@ export default function AddItem(props){
       />
     </div>
     <div className="form-footer">
+      <div className="ui-validation">{props.valid}</div>
       <input
         type="submit"
         className="ui-button"
         value="Добавить"
-        disabled={!props.valid}
       />
     </div>
   </form>

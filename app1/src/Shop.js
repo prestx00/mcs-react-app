@@ -1,19 +1,33 @@
 import React, { useState } from "react";
 import ItemsList from "./ItemsList.js";
 import AddItem from "./AddItem.js";
+import {Helmet} from "react-helmet";
+import uuid from "react-uuid";
 
 export default function Shop() {
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
+  const [valid, setValid] = useState("");
+
   const text = <p className="ui-title">Добавьте новый товар</p>;
-  const valid = !!name && !!desc;
  
   function handleSubmitForm(e) {
     e.preventDefault();
-    setItems([...items, { id: items.length, name: name, desc: desc }]);
+
+    if(!name){
+      setValid("Введите название");
+      return;
+    }
+    if(!desc){
+      setValid("Введите описание");
+      return;
+    }
+
+    setItems([...items, { id: uuid(), name: name, desc: desc }]);
     setName("");
     setDesc("");
+    setValid("");
   }
 
   const handleDeleteClick = (id) => () => {
@@ -33,8 +47,16 @@ export default function Shop() {
   function handleChangeDesc(e){
     setDesc(e.target.value)
   }
+  function caption(){
+    if (items.length === 0) {
+      return "Товары отсутствуют"
+    } return `${items.length} товаров`
+  }
   return (
     <>
+    <Helmet>
+      <title>{`${caption()}`}</title> 
+    </Helmet>
       <AddItem 
       onHandleSubmitForm={handleSubmitForm} 
       name={name} 
@@ -50,3 +72,4 @@ export default function Shop() {
     </>
   );
 }
+//добавили хелмет для изменения тайтла, добавили генерацию уникального айди, добавили валидацию формы
