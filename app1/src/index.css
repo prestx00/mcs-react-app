@@ -40,6 +40,7 @@
     width: 200px;
   }
   .ui-label {
+    color: black;
   }
   .inputContainer {
     display: flex;
