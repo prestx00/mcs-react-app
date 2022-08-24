@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemsList from "./ItemsList.js";
 import AddItem from "./AddItem.js";
 import {Helmet} from "react-helmet";
 import uuid from "react-uuid";
 
 export default function Shop() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(()=>{
+    const value = localStorage.getItem("item");
+    if(!value){
+      return [];
+    } return JSON.parse(value);
+  });
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [valid, setValid] = useState("");
 
   const text = <p className="ui-title">Добавьте новый товар</p>;
- 
+  
+  useEffect(()=> {
+    localStorage.setItem("item", JSON.stringify(items));
+  }, [items]);
+
   function handleSubmitForm(e) {
     e.preventDefault();
 
