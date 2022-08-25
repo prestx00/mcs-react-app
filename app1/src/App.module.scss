@@ -3,39 +3,39 @@
     @apply flex flex-col;
 
     .ui_label{
-      @apply text-black m-[10px];
+      @apply m-[10px] text-black;
     }
 
     .ui_textfield{
-        @apply w-[200px] py-[12px] px-[10px] border border-solid
-        border-[#cccccc] rounded-[3px] text-[16px] m-[10px];
+        @apply w-[200px] py-[12px] px-[10px]
+        border-[#cccccc] rounded-[3px] text-[16px] m-[10px] border border-solid;
     }
 
 }
 
 .ui_validation{
-    @apply text-red-600 m-[10px];
+    @apply m-[10px] text-red-600;
 }
 .ui_button{
     @apply bg-[#0000ff] m-[10px] text-white border-0 py-[15px] px-[20px]
     min-w-[150px] text-[16px] rounded-[3px] cursor-pointer transition-opacity duration-200 ease-out
     shadow-[1px_1px_1px_rgba(0,0,0,0.2)]
-    hover:opacity-[0.8] hover:disabled:opacity-[0.4] hover:disabled:cursor-not-allowed
-    active:shadow-[0_0px_rgba(0,0,0,0.2)] active:translate-y-[1px];
+    hover:opacity-[0.8] hover:disabled:opacity-[0.4]
+    active:shadow-[0_0px_rgba(0,0,0,0.2)] active:translate-y-[1px] hover:disabled:cursor-not-allowed;
 }
 //Item
 .item_info{
-    @apply ml-[10px];
+    @apply ml-2.5;
 
     .item_title{
-        @apply text-[30px];
+        @apply text-3xl;
     }
 }
 .item_quantity{
-    @apply flex items-center mb-[50px];
+    @apply flex mb-[50px] items-center;
 
     .item_total{
-        @apply text-[16px];
+        @apply text-base;
     }
 }
 //item-button also in ItemsList
@@ -52,7 +52,7 @@
     @apply list-none m-0 p-0;
 
     .ui_item_list{
-        @apply mb-[80px] m-[10px];
+        @apply mb-[80px] m-2.5;
     }
 }
 //Shop
@@ -61,5 +61,5 @@
 }
 
 [class^="ui_"] {
-    @apply m-[10px];
+    @apply m-2.5;
 }
