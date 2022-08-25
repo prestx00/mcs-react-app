@@ -15,7 +15,7 @@ export default function Shop() {
   const [desc, setDesc] = useState("");
   const [valid, setValid] = useState("");
 
-  const text = <p className="ui-title">Добавьте новый товар</p>;
+  const text = <p className="ui_title">Добавьте новый товар</p>;
   
   useEffect(()=> {
     localStorage.setItem("item", JSON.stringify(items));

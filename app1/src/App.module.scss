@@ -1,0 +1,65 @@
+//AddItem
+.inputContainer{
+    @apply flex flex-col;
+
+    .ui_label{
+      @apply text-black m-[10px];
+    }
+
+    .ui_textfield{
+        @apply w-[200px] py-[12px] px-[10px] border border-solid
+        border-[#cccccc] rounded-[3px] text-[16px] m-[10px];
+    }
+
+}
+
+.ui_validation{
+    @apply text-red-600 m-[10px];
+}
+.ui_button{
+    @apply bg-[#0000ff] m-[10px] text-white border-0 py-[15px] px-[20px]
+    min-w-[150px] text-[16px] rounded-[3px] cursor-pointer transition-opacity duration-200 ease-out
+    shadow-[1px_1px_1px_rgba(0,0,0,0.2)]
+    hover:opacity-[0.8] hover:disabled:opacity-[0.4] hover:disabled:cursor-not-allowed
+    active:shadow-[0_0px_rgba(0,0,0,0.2)] active:translate-y-[1px];
+}
+//Item
+.item_info{
+    @apply ml-[10px];
+
+    .item_title{
+        @apply text-[30px];
+    }
+}
+.item_quantity{
+    @apply flex items-center mb-[50px];
+
+    .item_total{
+        @apply text-[16px];
+    }
+}
+//item-button also in ItemsList
+.item_button{
+    @apply bg-white text-black border border-solid border-[#cccccc]
+    py-[5px] px-[20px] min-w-[50px] text-[16px] rounded-[3px] cursor-pointer
+    transition-opacity duration-200 ease-out shadow-[1px_1px_1px_rgba(0,0,0,0.2)]
+    mr-[10px] ml-[10px]
+    active:shadow-[0_0px_rgba(0,0,0,0.2)] translate-y-[1px]
+    hover:opacity-[0.8] disabled:opacity-[0.4] disabled:cursor-not-allowed;
+}
+//ItemsList
+.ui_list{
+    @apply list-none m-0 p-0;
+
+    .ui_item_list{
+        @apply mb-[80px] m-[10px];
+    }
+}
+//Shop
+.ui_title{
+    @apply font-sans
+}
+
+[class^="ui_"] {
+    @apply m-[10px];
+}

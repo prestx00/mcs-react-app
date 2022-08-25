@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from './App.module.scss';
 
 export default function Item(props) {
   const [total, setTotal] = useState(0);
@@ -21,20 +22,20 @@ export default function Item(props) {
 
   return (
     <div className="item">
-      <div className="item-info">
-        <h2 className="item-title">{info.name}</h2>
+      <div className={styles.item_info}>
+        <h2 className={styles.item_title}>{info.name}</h2>
         <p className="item-desc">{info.desc}</p>
       </div>
-      <div className="item-quantity">
+      <div className={styles.item_quantity}>
         <button
-          className="item-button"
+          className={styles.item_button}
           disabled={total === 0}
           onClick={handleRemoveClick}
         >
           -
         </button>
-        <h3 className="item-total">{total ? total : ""}</h3>
-        <button className="item-button" onClick={handleAddClick}>
+        <h3 className={styles.item_total}>{total ? total : ""}</h3>
+        <button className={styles.item_button} onClick={handleAddClick}>
           +
         </button>
       </div>
