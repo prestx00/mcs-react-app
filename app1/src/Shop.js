@@ -18,7 +18,7 @@ export default function Shop() {
   const text = <p className="ui_title">Добавьте новый товар</p>;
   
   useEffect(()=> {
-    localStorage.setItem("item", JSON.stringify(items));
+    localStorage.setItems("item", JSON.stringify(items));
   }, [items]);
 
   function handleSubmitForm(e) {
