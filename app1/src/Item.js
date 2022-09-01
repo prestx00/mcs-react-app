@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from './App.module.scss';
 
 export default function Item(props) {
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(()=> {
+    const value = localStorage.getItem("total");
+    if(!value){
+      return null; 
+    } return value;
+  });
 
   const { info } = props;
+
+  useEffect(()=>{
+    localStorage.setItem("total", total);
+  }, [total]);
 
   function handleAddClick() {
     setTotal(total + 1);
