@@ -1,0 +1,46 @@
+//Index
+.btn {
+    @apply bg-[#0000ff] m-[10px] text-white border-0 py-[15px] px-[20px]
+    min-w-[150px] text-[16px] rounded-[3px] cursor-pointer transition-opacity duration-200 ease-out
+    shadow-[1px_1px_1px_rgba(0,0,0,0.2)]
+    hover:opacity-[0.8] hover:disabled:opacity-[0.4]
+    active:shadow-[0_0px_rgba(0,0,0,0.2)] active:translate-y-[1px] hover:disabled:cursor-not-allowed;
+}
+
+.caption {
+    @apply ml-2.5;
+}
+
+//Item
+.item {
+    @apply p-[10px] bg-slate-100 w-[420px] mb-[50px] border-solid border border-gray-200 shadow-xl;
+}
+.image {
+    @apply ml-2.5;
+}
+.item_info{
+    @apply ml-2.5;
+
+    .item_title{
+        @apply text-3xl;
+    }
+}
+.item_quantity{
+    @apply flex items-center;
+    
+    .item_less {
+        @apply text-base w-[50px] ml-2.5;
+    }
+
+    .item_total{
+        @apply text-base ml-1 mr-1;
+    }
+
+    .item_more {
+        @apply w-[50px] text-base;
+    }
+}
+
+[class^="ui_"] {
+    @apply m-2.5;
+}
