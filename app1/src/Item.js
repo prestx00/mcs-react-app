@@ -5,7 +5,7 @@ export default function Item(props) {
   const [total, setTotal] = useState(()=> {
     const value = localStorage.getItem("total");
     if(!value){
-      return null; 
+      return 0; 
     } return value;
   });
 
