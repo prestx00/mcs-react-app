@@ -16,12 +16,12 @@ export default function Shop() {
   const [valid, setValid] = useState("");
 
   const text = <p className="ui_title">Добавьте новый товар</p>;
-  
+
   useEffect(()=> {
     localStorage.setItem("item", JSON.stringify(items));
   }, [items]);
 
-  function handleSubmitForm(e) {
+  async function handleSubmitForm(e) {
     e.preventDefault();
 
     if(!name){
@@ -33,7 +33,21 @@ export default function Shop() {
       return;
     }
 
-    setItems([...items, { id: uuid(), name: name, desc: desc }]);
+    setItems([...items, { id: uuid(), name: name, desc: desc}]);
+
+    try{
+      const requestOptions = {
+          method: "POST",
+          body: JSON.stringify({name: name, desc: desc}),
+          headers: {"Content-type": "application/json"}
+        }
+      const response = await fetch("https://covid-shop-mcs.herokuapp.com", requestOptions);
+      const data = await response.json();
+      console.log(data);
+      } catch (error) {
+        console.error(error)
+      }
+      
     setName("");
     setDesc("");
     setValid("");
