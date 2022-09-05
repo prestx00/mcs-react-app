@@ -11,6 +11,8 @@ var _mapboxGl = _interopRequireDefault(require("mapbox-gl/dist/mapbox-gl.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+_mapboxGl["default"].workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker')["default"];
+
 function useMapbox() {
   var container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'map';
   var center = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [44.2667, 46.3148];
