@@ -1,0 +1,7 @@
+.ui_button {
+    @apply bg-[#0000ff] text-white border-[0] py-[15px] px-[20px]
+    min-w-[150px] text-[16px] rounded-[3px] cursor-pointer 
+    transition-opacity duration-200 ease-out shadow-[0_1px_1px_1px_rgba(0,0,0,0.2)]
+    hover:opacity-[0.8] disabled:opacity-[0.4] disabled:cursor-not-allowed
+    active:shadow-[0_0px_rgba(0,0,0,0.2)] active:translate-y-px
+}
