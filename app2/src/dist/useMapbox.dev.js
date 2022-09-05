@@ -9,9 +9,11 @@ var _react = require("react");
 
 var _mapboxGl = _interopRequireDefault(require("mapbox-gl/dist/mapbox-gl.js"));
 
+var _mapboxGlCspWorker = _interopRequireDefault(require("mapbox-gl/dist/mapbox-gl-csp-worker"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-_mapboxGl["default"].workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker')["default"];
+_mapboxGl["default"].workerClass = _mapboxGlCspWorker["default"]["default"];
 
 function useMapbox() {
   var container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'map';
