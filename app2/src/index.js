@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 import "./index.css";
-import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
+import useMapbox from "./useMapbox.js";
 
 function App() {
   const [random, setRandom] = useState(Math.random());
-  
-  mapboxgl.accessToken = "pk.eyJ1Ijoid3JremciLCJhIjoiY2w1MTRsMW41MDI0ejNkcnliczMyNmpjNyJ9.Oydx12NzpiCwXiQ8qKG9-Q";
+  console.log(random)
 
-  useEffect(()=> {
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10',
-    center: [44.2667, 46.3148],
-    zoom: 11
-  }) 
-  }, [])
-  
-  
+  useMapbox('map',[44.2667, 46.3148], 12)
+ 
   return (
     <>
       <button
