@@ -8,7 +8,7 @@ function App() {
   const [random, setRandom] = useState(Math.random());
   console.log(random)
 
-  useMapbox('map',[44.2667, 46.3148], 12)
+  useMapbox()
  
   return (
     <>
