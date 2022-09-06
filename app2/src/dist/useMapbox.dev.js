@@ -36,7 +36,7 @@ function useMapbox() {
     return [centerA, centerB];
   }, [centerA, centerB]);
   (0, _react.useLayoutEffect)(function () {
-    var map = new _mapboxGl["default"].Map({
+    new _mapboxGl["default"].Map({
       container: container,
       style: 'mapbox://styles/mapbox/dark-v10',
       center: centerMemo,
