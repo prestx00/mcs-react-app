@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
+import useFetch from "./useFetch";
+
 export default function Shop() {
   const [list, setList] = useState();
-  const [loader, setLoader] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      setLoader(true)
-      try {
-        const response = await fetch("https://covid-shop-mcs.herokuapp.com");
-        const data = await response.json();
-        console.log(data);
-        setList(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoader(false)
-      }
-    })();
-  }, []);
+  const {get, loader} = useFetch();
 
-  if(loader){
-    return <p>Загрузка...</p>
-  }
+  useEffect(()=>{
+    get("https://covid-shop-mcs.herokuapp.com/")
+    .then(data=> {
+      setList(data)
+    })
+    .catch(error => console.error(error))
+  },[get])
+
   return (
     <div className="shop">
+      {loader ? <p>Загрузка...</p> : ""}
       {!!list && list.map((item) => <Item info={item} />)}
     </div>
   );
