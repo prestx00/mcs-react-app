@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export default function useFetch() {
   const [loader, setLoader] = useState(true);
-
-  function get(url) {
-    return new Promise((resolve, reject) => {
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          if (!data) {
+  
+    const get = useCallback((url)=>{
+        return new Promise((resolve, reject) => {
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+            if (!data) {
+                setLoader(false);
+                return reject(data);
+            }
             setLoader(false);
-            return reject(data);
-          }
-          setLoader(false);
-          resolve(data);
+            resolve(data);
+            })
+            .catch((error) => {
+            setLoader(false);
+            reject(error);
+            });
         })
-        .catch((error) => {
-          setLoader(false);
-          reject(error);
-        });
-    });
-  }
+        }, [])
 
   function post(url, body) {
     return new Promise((resolve, reject) => {
