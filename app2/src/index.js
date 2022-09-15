@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { render } from "react-dom";
 import "./index.css";
 import useMapbox from "./useMapbox.js";
@@ -7,6 +7,7 @@ import styles from "./App.module.scss";
 function App() {
   const [random, setRandom] = useState(Math.random());
   console.log(random)
+  const containerRef = useRef();
 
   useMapbox()
  
@@ -19,7 +20,7 @@ function App() {
       >
         Ререндер!
       </button>
-      <div id="map"></div>
+      <div ref={containerRef} id="map"></div>
     </>
   );
 }

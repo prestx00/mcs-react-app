@@ -22,7 +22,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function useMapbox() {
-  var container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "map";
+  var containerRef = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "map";
   var center = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [44.2667, 46.3148];
   var zoom = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 12;
   _mapboxGl["default"].accessToken = "pk.eyJ1Ijoid3JremciLCJhIjoiY2w1MTRsMW41MDI0ejNkcnliczMyNmpjNyJ9.Oydx12NzpiCwXiQ8qKG9-Q";
@@ -37,10 +37,10 @@ function useMapbox() {
   }, [centerA, centerB]);
   (0, _react.useLayoutEffect)(function () {
     new _mapboxGl["default"].Map({
-      container: container,
+      container: containerRef.current ? containerRef.current : containerRef,
       style: 'mapbox://styles/mapbox/dark-v10',
       center: centerMemo,
       zoom: zoom
     });
-  }, [container, centerMemo, zoom]);
+  }, [containerRef, centerMemo, zoom]);
 }
