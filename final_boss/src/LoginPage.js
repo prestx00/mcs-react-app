@@ -10,8 +10,9 @@ export default function LoginPage(){
     }
 
     return (<>
-            <div className={styles.background_img}>
-                 
+            <div className={styles.background_image}>
+                 <div><img src="./images/logo.png" alt="logo"/></div>
+                 <img src="./images/logo.png" alt="logo"></img>
             </div>
     </>)
 }
