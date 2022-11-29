@@ -1,3 +1,0 @@
-.background_image {
-  @apply bg-[url("./images/listpage_background.png")] w-screen h-screen bg-cover fixed;
-}
